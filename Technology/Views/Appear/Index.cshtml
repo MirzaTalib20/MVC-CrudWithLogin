@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Technology.Models.AccountModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<input type="button" value="Deleted List" class="btn btn-primary" onclick="location.href='@Url.Action("ViewDelete", "Account")'" />
+
+<input type="button" value="Add New" class="btn btn-primary" onclick="location.href='@Url.Action("Register", "Account")'" />
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<br /> <br />
+<table class="table table-bordered table-striped bg-info">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.firstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.confirm_password)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.RoleId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.firstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.lastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Gender)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.age)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.username)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.password)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.confirm_password)
+    </td>
+    @*<td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.RoleId)
+    </td>
+    <td>
+        <input type="button" value="Edit" class="btn btn-info" onclick="location.href='@Url.Action("Edit", "Account", new { id = item.Id })'" />
+
+
+        <input type="button" value="Delete" class="btn btn-danger" onclick="location.href='@Url.Action("Delete", "Account", new { id = item.Id })'" />
+
+    </td>
+    @*<td>
+        @Html.ActionLink("Edit", "Edit", "Account", new { id = item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    </td>*@
+</tr>
+}
+
+</table>
