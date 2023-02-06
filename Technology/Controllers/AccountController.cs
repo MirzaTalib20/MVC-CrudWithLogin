@@ -50,7 +50,7 @@ namespace Technology.Controllers
             {
                 Session["UserName"] = acc.username;
                 FormsAuthentication.SetAuthCookie(acc.username, true);
-                return RedirectToAction("Profile", "Appear");
+                return RedirectToAction("Editor", "Appear");
             }
             else if (result == "IRC")
             {

@@ -1,41 +1,129 @@
 ﻿@model Technology.Models.AccountModel
 
 @{
-    ViewBag.Title = "Login";
+    Layout = null;
 }
 
-<h2>Login</h2>
-@{       try
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Profile.css" rel="stylesheet" />
+    <title>Login</title>
+</head>
+<body>
+    @using (Html.BeginForm()) 
     {
-        if(TempData["msg"] != null)
-        {
-    <script>swal("Login Failed", "Incorrect UserName and Password", "error");</script>
-
-        }
-    }
-    catch
-    {
-
-    }
-}
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
+        @Html.AntiForgeryToken()
+        
     <div class="form-horizontal">
-        <h4>AccountModel</h4>
-        <hr />
+
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <!--<div class="container">
+        <div class="screen">
+            <div class="screen_content">
+                <div class="social-login">
+                    <h3>Log in Via</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-login_icon fab fa-instagram"></a>
+                        <a href="#" class="social-login_icon fab fa-facebook"></a>
+                        <a href="#" class="social-login_icon fab fa-twitter"></a>
+                    </div>
+                </div>
+                <form action="" class="login">
+                    <div class="login_field">
+                        <i class="login_icon fas fa-user"></i>-->
+        @*<input type="text" class="login_input" placeholder="Username / Email">*@
+        <!--<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+        @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "login_input" } })
+        @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="login_field">
+        <i class="login_icon fas fa-lock"></i>-->
+        @*<input type="password" name="" id="" class="login_input" placeholder="Password">*@
+        <!--@Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "login_input" } })
+                    </div>
+
+                    <button class="button login_submit">
+                        <span class="button_text">Login Now</span>
+                        <i class="login_icon fas fa-chevron-right"></i>
+                    </button>
+                </form>
+
+
+            </div>
+
+            <div class="screen_background">
+                <span class="screen_background_shape screen_background_shape4"></span>
+
+                <span class="screen_background_shape screen_background_shape3"></span>
+
+                <span class="screen_background_shape screen_background_shape2"></span>
+
+                <span class="screen_background_shape screen_background_shape1"></span>
+
+            </div>
+        </div>
+
+    </div>-->
+
+
+
+
+
+
+        <div class="center">
+            <input type="checkbox" id="show">
+            <label for="show" class="show-btn">View Form</label>
+            <div class="container">
+                <label for="show" class="close-btn fas fa-times" title="close"></label>
+                <div class="text">
+                    Login Form
+                </div>
+                <form action="#">
+                    <div class="data">
+                        <label>User Name</label>
+                        @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "login_input" } })
+                    </div>
+                    <br />
+                    <div class="data">
+                        <label>Password</label>
+                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "login_input" } })
+                    </div>
+                    <br />
+                    <div class="forgot-pass">
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    <div class="btn">
+                        <div class="inner">
+                        </div>
+                        <button type="submit">login</button>
+                    </div>
+                    <div class="signup-link">
+                        Not a member?   @Html.ActionLink("Signup now", "Register","Account")
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+
         @*<div class="form-group">
             @Html.LabelFor(model => model.firstName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.firstName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-danger" })
             </div>
-        </div>*@
+        </div>
 
-        @*<div class="form-group">
+        <div class="form-group">
             @Html.LabelFor(model => model.lastName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.lastName, new { htmlAttributes = new { @class = "form-control" } })
@@ -67,7 +155,7 @@
             </div>
         </div>*@
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.username, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
@@ -81,7 +169,7 @@
                 @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         @*<div class="form-group">
             @Html.LabelFor(model => model.confirm_password, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -99,28 +187,26 @@
                     @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
                 </div>
             </div>
-        </div>*@
+        </div>
 
-        @*<div class="form-group">
+        <div class="form-group">
             @Html.LabelFor(model => model.RoleId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.RoleId, new SelectList(new[] { "1", "2", "3", "4", "5", "6" }), "Choose", new { @class = "form-control" })
+                @Html.EditorFor(model => model.RoleId, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.RoleId, "", new { @class = "text-danger" })
             </div>
         </div>*@
 
-        <div class="form-group">
+        @*<div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
-        </div>
+        </div>*@
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    }
+    
+    @*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+</body>
+</html>
