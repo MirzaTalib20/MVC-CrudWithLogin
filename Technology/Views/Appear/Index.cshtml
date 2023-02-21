@@ -2,8 +2,12 @@
 
 @{
     ViewBag.Title = "Index";
+
 }
 
+
+@ViewBag.Message;
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
 <h2>Index</h2>
 <input type="button" value="Deleted List" class="btn btn-primary" onclick="location.href='@Url.Action("ViewDelete", "Account")'" />
 
@@ -12,8 +16,8 @@
     @Html.ActionLink("Create New", "Create")
 </p>*@
 <br /> <br />
-<table class="table table-bordered table-striped bg-info">
-    <tr>
+<table class="table table-bordered table-striped bg-info" style="border:2px solid black;">
+    <tr style="color:black;font-weight:300">
         <th>
             @Html.DisplayNameFor(model => model.firstName)
         </th>
@@ -48,7 +52,7 @@
     </tr>
 
 @foreach (var item in Model) {
-<tr>
+<tr style="color:black;font-weight:bold">
     <td>
         @Html.DisplayFor(modelItem => item.firstName)
     </td>

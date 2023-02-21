@@ -10,7 +10,7 @@ namespace Technology.DapperRepository
 {
     public class DapperORM
     {
-        private static string connectionString = @"Data Source=DESKTOP-4QTM0CJ;Initial Catalog=Manage;User ID=sa;Password=123";
+        private static string connectionString = @"Data Source=Equ-PC08;Initial Catalog=Manage;User ID=sa;Password=123";
 
 
 
@@ -41,7 +41,7 @@ namespace Technology.DapperRepository
 
 
 
-        public static IEnumerable<T> ReturnList<T>(string procedureName, DynamicParameters param = null, object p = null)
+        public static IEnumerable<T> ReturnList<T>(string procedureName, DynamicParameters param = null)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -52,6 +52,6 @@ namespace Technology.DapperRepository
         }
 
 
-
+        
     }
 }

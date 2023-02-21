@@ -43,7 +43,9 @@ template {
   display: none;
 }
 a {
-  background-color: transparent;
+    background-color: transparent;
+ 
+
 }
 a:active,
 a:hover {
@@ -186,6 +188,7 @@ optgroup {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  border: 1px solid black;
 }
 td,
 th {
@@ -254,6 +257,9 @@ th {
   .table {
     border-collapse: collapse !important;
   }
+    .table-bordered {
+        border: 2px solid black;
+    }
   .table td,
   .table th {
     background-color: #fff !important;
@@ -4679,9 +4685,11 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .navbar-inverse .navbar-text {
   color: #9d9d9d;
 }
+
 .navbar-inverse .navbar-nav > li > a {
-  color: #9d9d9d;
-}
+        color: #fff;
+        font-size:15px;
+    }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
   color: #fff;

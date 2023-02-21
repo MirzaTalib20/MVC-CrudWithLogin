@@ -39,7 +39,25 @@ namespace Technology.Controllers
         [Authorize]
         public ActionResult Profile()
         {
-            return View();
+            DynamicParameters param = new DynamicParameters();
+            var a = DapperORM.ReturnList<AccountModel>("sp_View", param).ToList();
+
+            try
+            {
+                if (User.Identity.Name == null)
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+
+            }
+            catch
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+
+
+            return View(a);
         }
 
 
@@ -67,5 +85,10 @@ namespace Technology.Controllers
 
             return View(a);
         }
+
+
+
+
+       
     }
 }

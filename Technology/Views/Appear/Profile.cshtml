@@ -1,7 +1,80 @@
-﻿
+﻿@model IEnumerable<Technology.Models.AccountModel>
+
 @{
     ViewBag.Title = "Profile";
 }
 
 <h2>Profile</h2>
-<h4>@Session["UserName"].ToString()</h4>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table table-bordered table-striped bg-info" style="border:2px solid black;">
+    <tr style="color:black;font-weight:200">
+        <th>
+            @Html.DisplayNameFor(model => model.firstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.confirm_password)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.RoleId)
+        </th>
+      
+    </tr>
+
+@foreach (var item in Model) {
+    <tr style="color:black;font-weight:200" >
+        <td>
+            @Html.DisplayFor(modelItem => item.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.confirm_password)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.RoleId)
+        </td>
+       </tr>
+}
+
+</table>

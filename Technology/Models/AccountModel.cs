@@ -28,8 +28,15 @@ namespace Technology.Models
         [Required(ErrorMessage = "Age is required")]
         public int age { get; set; }
 
-        [DisplayName("Email")]
-        [Required(ErrorMessage = "Email is required")]
+
+
+        [MaxLength(100)]
+        [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}", ErrorMessage = "Check email address format!")]
+        [Required]
+
+        //[Index(IsUnique = true)]
+        [Display(Name = "Email")]
+        [EmailAddress]
         public string email { get; set; }
 
         [DisplayName("username")]
